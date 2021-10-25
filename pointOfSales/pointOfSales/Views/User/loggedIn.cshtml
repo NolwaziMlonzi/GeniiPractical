@@ -2,21 +2,160 @@
 @{
     ViewBag.Title = "loggedIn";
 }
+<head>
+    <style>
+        .panel-primary {
+            border-color: rgba(0, 0, 0, 0.6);
+            display: block;
+            width: 32%;
+            float: left;
+            margin: 6px;
+        }
+        .panel-warning {
+            border-color: rgba(0, 0, 0, 0.6);
+            display: block;
+            width: 100%;
+            float: left;
+            margin: 6px;
+        }
+        .stat {
+            position: relative;
+            top: 40px;
+            font-size: 30px;
+            font-weight: bold;
+            font-family: ui-rounded;
+        }
+        .panel-body {
+            padding: 25px;
+            display: block;
+            text-align: center;
+            height: 157px;
+        }
+        footer {
+            position: relative;
+            top: 33vh;
+        }
+        .p {
+            display: block;
+            float: left;
+            margin-top: 35px;
+        }
+        .sideBar {
+            display: block;
+            float: left;
+            width: 20%;
+            position: relative;
+            background: black;
+            height: 85vh;
+        }
+            .list-group a {
+                padding: 23px 15px
+            }
+        .jumbotron {
+            width: 80%;
+            padding-bottom: 36px;
+            height: 85vh;
+        }
+        .container {
+            width: 100%;
+        }
+    </style>
+</head>
+<div class="list-group p sideBar">
+    <a href="#" class="list-group-item active">
+        <h3> Dashbord</h3>
+    </a>
+    <a href="#" class="list-group-item">
+        Products
+    </a>
+    <a href="#" class="list-group-item">
+        Invoices
+    </a>
+    <a href="#" class="list-group-item">
+        Generate/View Reports
+    </a>
+    <a href="#" class="list-group-item">
+        View Account
+    </a>
+    
+     <footer>
+    <p style="text-align:center">Created In : &copy; @DateTime.Now.Year - By Nolwazi Mlonzi</p>
+    </footer>
+</div>
+<div class="jumbotron p">
+    <fieldset>
+        <legend>
 
-<fieldset>
-    <legend>
-
-        @if (Session["UserName"] != null)
-        {
+            @if (Session["UserName"] != null)
+            {
 
                 ViewBag.Role = Session["Role"].ToString();
                 <text>
                 </text>
-            
-            <text>
-                Logged In User : @Session["FirstName"].ToString() @Session["LastName"].ToString()
-            </text>
-        }
-    </legend>
-</fieldset>
+
+
+            }
+        </legend>
+    </fieldset>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title"> Total Products Sold</h3>
+        </div>
+        <div class="panel-body stat">
+            116
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Logged Invoices</h3>
+        </div>
+        <div class="panel-body stat">
+            76
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">No. Of Generated Reports</h3>
+        </div>
+        <div class="panel-body stat">
+            67
+        </div>
+    </div>
+
+    <div class="panel panel-primary" style="width:100%">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <span class="badge">14</span>
+                Total No. of Generated Reports For Sold Products.
+            </li>
+            <li class="list-group-item">
+                <span class="badge">2</span>
+                Total No. of Generated Reports For Products in Stock.
+            </li>
+            <li class="list-group-item">
+                <span class="badge">1</span>
+                Total No. of Generated Reports For  Products in Stock vs Products Sold.
+            </li>
+        </ul>
+    </div>
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"> Product Re-stock Needed For The Following:</i>
+            </h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="panel panel-primary" style="width:100%">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span class="badge">14</span>
+                        Total No. of Generated Reports For Sold Products.
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+</div>
 

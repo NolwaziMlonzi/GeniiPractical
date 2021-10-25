@@ -23,7 +23,7 @@
 
                     @if (ViewBag.Title != "Login")
                     {
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Home", "LoggedIn", "User")</li>
                         if (Session["Role"].ToString().ToLower() == "admin")
                         {
                             <li>@Html.ActionLink("Users", "Index", "User")</li>
@@ -36,9 +36,20 @@
                 </ul>
                 @if (ViewBag.Title != "Login")
                 {
-                    <ul class="nav navbar-nav" style="float: right;">
-                        <li class="nav navbar-nav" style="display:inline;float:right">@Html.ActionLink("Logout", "Login", "User")</li>
-                    </ul>
+                <ul class="nav navbar-nav" style="float: right;">
+                    <li class="nav navbar-nav" style="display:inline;float:right">@Html.ActionLink("Logout", "Login", "User")</li>
+                    <li class="nav navbar-nav" style="display:inline;float:right">
+                        <a href="">
+                            Logged In As @Session["Role"].ToString(): @Session["FirstName"].ToString() @Session["LastName"].ToString()
+                        </a>
+                    </li>
+                    <li class="nav navbar-nav" style="display:inline;float:right">
+                        <a href="#">
+                            <span class="badge">
+                                <i class="fa fa-bell" aria-hidden="true"></i>5
+                                </span>
+                        </a></li>
+                </ul>
                 }
                 </div>
             
@@ -46,10 +57,7 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Point of Sales</p>
-        </footer>
+       
     </div>
 
     @Scripts.Render("~/bundles/jquery")
