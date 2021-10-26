@@ -21,5 +21,6 @@ namespace pointOfSales.Models
         public Double Total { get; set; }
 
         public virtual List<Product> Products { get; set; }
+        public virtual List<Item> Items { get; set; }
     }
 }

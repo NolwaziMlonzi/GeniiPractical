@@ -155,6 +155,8 @@ namespace pointOfSales.Controllers
                     Session["Role"] = LoggedUser.Role;
                     return RedirectToAction("LoggedIn");
                 }
+
+              
             }
             #region ViewData
             List<SelectListItem> UserRoles = new List<SelectListItem>()

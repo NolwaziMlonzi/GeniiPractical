@@ -75,14 +75,16 @@
         <h3> Dashbord</h3>
     </a>
     <span class="links">
-    @Html.ActionLink("Products", "Index", "Product")
-     </span>
-        <span class="links">
-            @Html.ActionLink("Invoices", "Index", "Invoice")
-        </span>
-    <a href="#" class="list-group-item">
-        Generate/View Reports
-    </a>
+        @Html.ActionLink("Products", "Index", "Product")
+    </span>
+    <span class="links">
+        @Html.ActionLink("Invoices", "Index", "Invoice")
+    </span>
+
+  
+    <span class="links">
+        @Html.ActionLink("Generate/View Reports", "Index", "item")
+    </span>
     <a href="#" class="list-group-item">
         View Account
     </a>

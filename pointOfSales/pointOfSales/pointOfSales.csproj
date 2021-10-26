@@ -129,6 +129,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvoiceController.cs" />
+    <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -179,10 +180,28 @@
     <Compile Include="Migrations\202110252153011_AddedDateCreatedField.designer.cs">
       <DependentUpon>202110252153011_AddedDateCreatedField.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110260602169_addedItems.cs" />
+    <Compile Include="Migrations\202110260602169_addedItems.designer.cs">
+      <DependentUpon>202110260602169_addedItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110261142276_updateItemTable.cs" />
+    <Compile Include="Migrations\202110261142276_updateItemTable.designer.cs">
+      <DependentUpon>202110261142276_updateItemTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110261300450_NewChange.cs" />
+    <Compile Include="Migrations\202110261300450_NewChange.designer.cs">
+      <DependentUpon>202110261300450_NewChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110261302450_addedTotalAmount.cs" />
+    <Compile Include="Migrations\202110261302450_addedTotalAmount.designer.cs">
+      <DependentUpon>202110261302450_addedTotalAmount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataContext.cs" />
     <Compile Include="Models\Invoice.cs" />
+    <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductsSold.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -256,6 +275,13 @@
     <Content Include="Views\Invoice\Details.cshtml" />
     <Content Include="Views\Invoice\Edit.cshtml" />
     <Content Include="Views\Invoice\Index.cshtml" />
+    <Content Include="Views\Item\Create.cshtml" />
+    <Content Include="Views\Item\Delete.cshtml" />
+    <Content Include="Views\Item\Details.cshtml" />
+    <Content Include="Views\Item\Edit.cshtml" />
+    <Content Include="Views\Invoice\Indexs.cshtml" />
+    <Content Include="Views\Invoice\Test.cshtml" />
+    <Content Include="Views\Item\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -304,6 +330,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110252153011_AddedDateCreatedField.resx">
       <DependentUpon>202110252153011_AddedDateCreatedField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110260602169_addedItems.resx">
+      <DependentUpon>202110260602169_addedItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110261142276_updateItemTable.resx">
+      <DependentUpon>202110261142276_updateItemTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110261300450_NewChange.resx">
+      <DependentUpon>202110261300450_NewChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110261302450_addedTotalAmount.resx">
+      <DependentUpon>202110261302450_addedTotalAmount.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

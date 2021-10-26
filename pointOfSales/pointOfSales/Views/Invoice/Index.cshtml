@@ -2,7 +2,9 @@
 
 @{
     ViewBag.Title = "Index";
+
 }
+
 
 <h2> Existing Invoice in The System</h2>
 
@@ -25,24 +27,25 @@
 
     @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateCreated)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Total)
-        </td>
-        <td>
-            <i class="fa fa-pencil" aria-hidden="true"> @Html.ActionLink("Edit", "Edit", new { id = item.InvoiceID }) |</i>
-            <i class="fa fa-eye" aria-hidden="true"> @Html.ActionLink("Details", "Details", new { id = item.InvoiceID }) |</i>
-            <i class="fa fa-trash" aria-hidden="true"> @Html.ActionLink("Delete", "Delete", new { id = item.InvoiceID }) |</i>
-            <i class="fa fa-plus-circle" aria-hidden="true"> @Html.ActionLink("Create", "Add Item", new { id = item.InvoiceID })</i>
+        //ViewBag.InvoiceID = item.InvoiceID;
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateCreated)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.UserName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Total)
+    </td>
+    <td>
+        <i class="fa fa-pencil" aria-hidden="true"> @Html.ActionLink("Edit", "Edit", new { id = item.InvoiceID }) |</i>
+        <i class="fa fa-eye" aria-hidden="true"> @Html.ActionLink("Details", "Details", new { id = item.InvoiceID }) |</i>
+        <i class="fa fa-trash" aria-hidden="true"> @Html.ActionLink("Delete", "Delete", new { id = item.InvoiceID }) |</i>
+        <i class="fa fa-plus-circle" aria-hidden="true">@Html.ActionLink("Add Items", "Test", new { id = item.InvoiceID })</i>
 
-        </td>
-    </tr>
-    }
+    </td>
+</tr>
+}
 
 </table>
