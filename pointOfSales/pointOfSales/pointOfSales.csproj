@@ -128,6 +128,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InvoiceController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -157,8 +159,30 @@
     <Compile Include="Migrations\202110241849082_rnaePass.designer.cs">
       <DependentUpon>202110241849082_rnaePass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110252025006_Products.cs" />
+    <Compile Include="Migrations\202110252025006_Products.designer.cs">
+      <DependentUpon>202110252025006_Products.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110252104567_addedLabelsForProducts.cs" />
+    <Compile Include="Migrations\202110252104567_addedLabelsForProducts.designer.cs">
+      <DependentUpon>202110252104567_addedLabelsForProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110252147000_LinkTableProductAndInvoice.cs" />
+    <Compile Include="Migrations\202110252147000_LinkTableProductAndInvoice.designer.cs">
+      <DependentUpon>202110252147000_LinkTableProductAndInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110252150415_ChangedDatatypeOfFields.cs" />
+    <Compile Include="Migrations\202110252150415_ChangedDatatypeOfFields.designer.cs">
+      <DependentUpon>202110252150415_ChangedDatatypeOfFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110252153011_AddedDateCreatedField.cs" />
+    <Compile Include="Migrations\202110252153011_AddedDateCreatedField.designer.cs">
+      <DependentUpon>202110252153011_AddedDateCreatedField.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataContext.cs" />
+    <Compile Include="Models\Invoice.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -222,6 +246,16 @@
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\User\loggedIn.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Delete.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Invoice\Create.cshtml" />
+    <Content Include="Views\Invoice\Delete.cshtml" />
+    <Content Include="Views\Invoice\Details.cshtml" />
+    <Content Include="Views\Invoice\Edit.cshtml" />
+    <Content Include="Views\Invoice\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -255,6 +289,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110241849082_rnaePass.resx">
       <DependentUpon>202110241849082_rnaePass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110252025006_Products.resx">
+      <DependentUpon>202110252025006_Products.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110252104567_addedLabelsForProducts.resx">
+      <DependentUpon>202110252104567_addedLabelsForProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110252147000_LinkTableProductAndInvoice.resx">
+      <DependentUpon>202110252147000_LinkTableProductAndInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110252150415_ChangedDatatypeOfFields.resx">
+      <DependentUpon>202110252150415_ChangedDatatypeOfFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110252153011_AddedDateCreatedField.resx">
+      <DependentUpon>202110252153011_AddedDateCreatedField.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

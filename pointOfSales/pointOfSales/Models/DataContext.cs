@@ -11,6 +11,8 @@ namespace point_of_sales.Models
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>()

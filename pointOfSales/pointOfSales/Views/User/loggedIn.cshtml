@@ -55,9 +55,18 @@
             width: 80%;
             padding-bottom: 36px;
             height: 85vh;
+            padding-top: 0;
         }
         .container {
             width: 100%;
+        }
+        .links a {
+            position: relative;
+            display: block;
+            padding: 23px 15px;
+            margin-bottom: -1px;
+            background-color: #32383e;
+            border: 1px solid rgba(0, 0, 0, 0.6);
         }
     </style>
 </head>
@@ -65,21 +74,21 @@
     <a href="#" class="list-group-item active">
         <h3> Dashbord</h3>
     </a>
-    <a href="#" class="list-group-item">
-        Products
-    </a>
-    <a href="#" class="list-group-item">
-        Invoices
-    </a>
+    <span class="links">
+    @Html.ActionLink("Products", "Index", "Product")
+     </span>
+        <span class="links">
+            @Html.ActionLink("Invoices", "Index", "Invoice")
+        </span>
     <a href="#" class="list-group-item">
         Generate/View Reports
     </a>
     <a href="#" class="list-group-item">
         View Account
     </a>
-    
-     <footer>
-    <p style="text-align:center">Created In : &copy; @DateTime.Now.Year - By Nolwazi Mlonzi</p>
+
+    <footer>
+        <p style="text-align:center">Created In : &copy; @DateTime.Now.Year - By Nolwazi Mlonzi</p>
     </footer>
 </div>
 <div class="jumbotron p">
