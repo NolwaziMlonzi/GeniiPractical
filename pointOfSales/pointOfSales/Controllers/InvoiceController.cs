@@ -14,7 +14,7 @@ namespace pointOfSales.Controllers
     public class InvoiceController : Controller
     {
         private DataContext db = new DataContext();
-
+        public int? value;
         // GET: InvoiceID
         public ActionResult Index()
         {
@@ -64,12 +64,27 @@ namespace pointOfSales.Controllers
             //InvoiceID item = db.InvoiceIDs.Find(id);
             
             Session["InvoiceID"] = id;
+            value = id;
             return RedirectToAction("Indexs");
         }
         public ActionResult Indexs()
         {
-            return View(db.ProductItems.ToList());
+            var obj = db.ProductItems;
+            value = Convert.ToInt16(Session["InvoiceID"]);
+            //ProductItem item = db.ProductItems.Find(id);
+            //var items = obj.Where(u => u.Invoice_Id.(Session["InvoiceID"]);
+            System.Diagnostics.Debug.WriteLine(Session["InvoiceID"] + "-------InvoiceID----------1" + value);
+            var cart = (from n in db.ProductItems  where n.Invoice_Id == value select n).ToList();
+            return View(cart);
+
         }
+        //public ActionResult ItemIndexs()
+        //{
+        //    var obj = db.ProductItems;
+        //    var items = obj.Where(u => u.Invoice_Id.Equals(Session["InvoiceID"])).FirstOrDefault();
+        //    ProductItem item = db.Pr.Find(Session["InvoiceID"]);
+        //    return View(item);
+        //}
         // GET: InvoiceID/Details/5
         public ActionResult Details(int? id)
         {
@@ -140,6 +155,41 @@ namespace pointOfSales.Controllers
             return View(Invoice);
         }
 
+
+        // GET: ProductItem/Edit/5
+        public ActionResult ItemEdit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ProductItem productItem = db.ProductItems.Find(id);
+            if (productItem == null)
+            {
+                return HttpNotFound();
+            }
+            return View(productItem);
+        }
+
+        // POST: ProductItem/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ItemEdit([Bind(Include = "ItemID,ItemName,CostPerItem,TotalCost,TotalAmount,Invoice_Id")] ProductItem productItem)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(productItem).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Indexs");
+            }
+            return View(productItem);
+        }
+
+
+
+
         // GET: InvoiceID/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -165,6 +215,33 @@ namespace pointOfSales.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        // GET: ProductItem/Delete/5
+        public ActionResult ItemDelete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ProductItem productItem = db.ProductItems.Find(id);
+            if (productItem == null)
+            {
+                return HttpNotFound();
+            }
+            return View(productItem);
+        }
+
+        // POST: ProductItem/Delete/5
+        [HttpPost, ActionName("ItemDelete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult IDeleteConfirmed(int id)
+        {
+            ProductItem productItem = db.ProductItems.Find(id);
+            db.ProductItems.Remove(productItem);
+            db.SaveChanges();
+            return RedirectToAction("Indexs");
+        }
+
 
         protected override void Dispose(bool disposing)
         {

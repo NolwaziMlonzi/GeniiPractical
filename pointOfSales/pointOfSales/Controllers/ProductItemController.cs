@@ -60,7 +60,7 @@ namespace pointOfSales.Controllers
         }
 
         // GET: ProductItem/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult ItemEdit(int? id)
         {
             if (id == null)
             {
@@ -79,7 +79,7 @@ namespace pointOfSales.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ItemID,ItemName,CostPerItem,TotalCost,TotalAmount,Invoice_Id")] ProductItem productItem)
+        public ActionResult ItemEdit([Bind(Include = "ItemID,ItemName,CostPerItem,TotalCost,TotalAmount,Invoice_Id")] ProductItem productItem)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace pointOfSales.Controllers
         }
 
         // GET: ProductItem/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult ProductItemDelete(int? id)
         {
             if (id == null)
             {
@@ -108,7 +108,7 @@ namespace pointOfSales.Controllers
         // POST: ProductItem/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult ProductItemDeleteConfirmed(int id)
         {
             ProductItem productItem = db.ProductItems.Find(id);
             db.ProductItems.Remove(productItem);

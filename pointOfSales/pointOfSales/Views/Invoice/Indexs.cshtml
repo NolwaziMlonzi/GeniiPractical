@@ -2,6 +2,14 @@
 @{
     ViewBag.Title = "Indexs";
 }
+
+<script>
+
+    function countdown(time)
+    {
+        return total
+    }
+</script>
 <h2> Existing Items in The Invoice</h2>
 <div class="form-group">
     <label class="control-label" for="disabledInput"> Invoice ID</label>
@@ -28,42 +36,50 @@
             @Html.DisplayNameFor(model => model.TotalCost)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TotalAmount)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Invoice_Id)
         </th>
         <th></th>
     </tr>
-
+    @{ // from here c# block starts
+        Double total = 0.0;
+    }
     @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CostPerItem)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalCost)
+        total += item.TotalCost;
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemName)
+            </td>
+            <td>
+                R: @Html.DisplayFor(modelItem => item.CostPerItem)
+            </td>
+            <td>
+                R: @Html.DisplayFor(modelItem => item.TotalCost)
 
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalAmount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Invoice_Id)
-        </td>
-        <td>
-            <i class="fa fa-pencil" aria-hidden="true"> @Html.ActionLink("Edit", "ItemEdit", new { id = item.ItemID }) |</i>
-            <i class="fa fa-eye" aria-hidden="true"> @Html.ActionLink("Details", "ItemDetails", new { id = item.ItemID }) |</i>
-            <i class="fa fa-trash" aria-hidden="true"> @Html.ActionLink("Delete", "ItemDelete", new { id = item.ItemID }) </i>
-        </td>
-    </tr>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Invoice_Id)
+            </td>
+            <td>
+                <i class="fa fa-pencil" aria-hidden="true"> @Html.ActionLink("Edit", "ItemEdit", new { id = item.ItemID }) |</i>
+                <i class="fa fa-eye" aria-hidden="true"> @Html.ActionLink("Details", "ItemDetails", new { id = item.ItemID }) |</i>
+                <i class="fa fa-trash" aria-hidden="true"> @Html.ActionLink("Delete", "ItemDelete", new { id = item.ItemID }) </i>
+            </td>
+        </tr>
     }
+    @{ // from here c# block starts
+        total = Math.Round(total, 2);
+        ViewData["InvoiceTotal"] = total;
+    }
+    <tr>
+        <td>Total Invoce : </td>
+        <td colspan="5" style="text-align:right;">
+            R: @total
+        </td>
 
+    </tr>
 </table>
+
