@@ -10,7 +10,7 @@
         return total
     }
 </script>
-<h2> Existing Items in The Invoice</h2>
+<h2> Added Items for The Invoice</h2>
 <div class="form-group">
     <label class="control-label" for="disabledInput"> Invoice ID</label>
     <input class="form-control" id="disabledInput" type="text" disabled="" value=@Session["InvoiceID"]>
@@ -72,12 +72,22 @@
     }
     @{ // from here c# block starts
         total = Math.Round(total, 2);
-        ViewData["InvoiceTotal"] = total;
+        Session["InvoiceTotal"] = total;
     }
     <tr>
-        <td>Total Invoce : </td>
-        <td colspan="5" style="text-align:right;">
+        <td colspan="5" style="text-align:right">Total : </td>
+        <td colspan="1" style="text-align:center;">
             R: @total
+        </td>
+
+    </tr>
+    <tr>
+        <td colspan="6" style="text-align:right;">
+            @*<a href="InvoiceLog" class="btn btn-default"> <i class="fa fa-money" aria-hidden="true"> Log Invoice</i></a>*@
+            <p class="btn btn-default">
+            <i class="fa fa-money" aria-hidden="true"> @Html.ActionLink("Log Invoice", "LogInvoice", "Invoice")
+            </i>
+            </p>
         </td>
 
     </tr>

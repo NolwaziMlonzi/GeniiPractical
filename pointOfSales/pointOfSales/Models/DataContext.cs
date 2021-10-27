@@ -21,6 +21,7 @@ namespace point_of_sales.Models
                 .HasColumnName("RetypePassword");
 
         }
-        
+
+        public System.Data.Entity.DbSet<pointOfSales.Models.ProductsSold> ProductsSolds { get; set; }
     }
 }

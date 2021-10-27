@@ -18,7 +18,8 @@ namespace pointOfSales.Controllers
         // GET: InvoiceID
         public ActionResult Index()
         {
-            return View(db.Invoice.ToList());
+                return View(db.Invoice.ToList());
+            
         }
 
         // GET: ProductItem/Create
@@ -32,7 +33,7 @@ namespace pointOfSales.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ItemCreate([Bind(Include = "ItemID,ItemName,CostPerItem,TotalCost,TotalAmount,Invoice_Id")] ProductItem productItem)
+        public ActionResult ItemCreate([Bind(Include = "ItemID,ItemName,CostPerItem,TotalCost,Invoice_Id")] ProductItem productItem)
         {
             if (ModelState.IsValid)
             {
@@ -40,10 +41,15 @@ namespace pointOfSales.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Indexs");
             }
-
+            UpdateTotalInvoice();
             return View(productItem);
         }
-
+        public ActionResult UpdateTotalInvoice()
+        {
+           
+            System.Diagnostics.Debug.WriteLine(Session["InvoiceID"] + "-----viewData--InvoiceID----------1" + Session["InvoiceTotal"]);
+            return View();
+        }
         // GET: ProductItem/Details/5
         public ActionResult ItemDetails(int? id)
         {
@@ -69,11 +75,12 @@ namespace pointOfSales.Controllers
         }
         public ActionResult Indexs()
         {
+            //UpdateTotalInvoice();
             var obj = db.ProductItems;
             value = Convert.ToInt16(Session["InvoiceID"]);
             //ProductItem item = db.ProductItems.Find(id);
             //var items = obj.Where(u => u.Invoice_Id.(Session["InvoiceID"]);
-            System.Diagnostics.Debug.WriteLine(Session["InvoiceID"] + "-------InvoiceID----------1" + value);
+            //System.Diagnostics.Debug.WriteLine(Session["InvoiceID"] + "-------InvoiceID----------1" + value);
             var cart = (from n in db.ProductItems  where n.Invoice_Id == value select n).ToList();
             return View(cart);
 
@@ -186,10 +193,18 @@ namespace pointOfSales.Controllers
             }
             return View(productItem);
         }
+        public ActionResult LogInvoice()
+        {
+            //UpdateTotalInvoice();
+            var obj = db.Invoice;
+            value = Convert.ToInt16(Session["InvoiceID"]);
+            //ProductItem item = db.ProductItems.Find(id);
+            //var items = obj.Where(u => u.Invoice_Id.(Session["InvoiceID"]);
+            //System.Diagnostics.Debug.WriteLine(Session["InvoiceID"] + "-------InvoiceID----------1" + value);
+            var cart = (from n in db.Invoice where n.InvoiceID == value select n).ToList();
+            return View(cart);
 
-
-
-
+        }
         // GET: InvoiceID/Delete/5
         public ActionResult Delete(int? id)
         {

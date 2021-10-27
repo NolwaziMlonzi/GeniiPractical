@@ -140,7 +140,7 @@ namespace pointOfSales.Controllers
         }
         //login
         [HttpPost]
-        public ActionResult Login([Bind(Include = "UserID,UserName,FirstName,LastName,EmailAddress,Password,Re_typePassword,Role")] User user)
+        public ActionResult Login( User user)
         {
             if (ModelState.IsValid)
             {
@@ -180,6 +180,8 @@ namespace pointOfSales.Controllers
             //System.Diagnostics.Debug.WriteLine(user, "Hello World----------------------------------------------------------------------------------------------");
             //Console.Write("-------", db.Users.ToList());
             System.Diagnostics.Debug.WriteLine(Session["UserID"],"-----------------1");
+            var count = db.ProductItems.Count();
+            ViewBag.TotalSold = count;
             if (Session["UserID"] != null)
             {
                 return View();
