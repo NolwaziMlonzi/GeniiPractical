@@ -256,6 +256,26 @@
     <Compile Include="Migrations\202110270032323_spellingEror.designer.cs">
       <DependentUpon>202110270032323_spellingEror.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110270926117_cangeDatatype.cs" />
+    <Compile Include="Migrations\202110270926117_cangeDatatype.designer.cs">
+      <DependentUpon>202110270926117_cangeDatatype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110270942079_updateDatabase.cs" />
+    <Compile Include="Migrations\202110270942079_updateDatabase.designer.cs">
+      <DependentUpon>202110270942079_updateDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110270946232_changeFielNae.cs" />
+    <Compile Include="Migrations\202110270946232_changeFielNae.designer.cs">
+      <DependentUpon>202110270946232_changeFielNae.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110270956417_UDATEtABLE.cs" />
+    <Compile Include="Migrations\202110270956417_UDATEtABLE.designer.cs">
+      <DependentUpon>202110270956417_UDATEtABLE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110271010034_dropandcreateTable.cs" />
+    <Compile Include="Migrations\202110271010034_dropandcreateTable.designer.cs">
+      <DependentUpon>202110271010034_dropandcreateTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataContext.cs" />
     <Compile Include="Models\Invoice.cs" />
@@ -337,10 +357,10 @@
     <Content Include="Views\Invoice\Index.cshtml" />
     <Content Include="Views\Invoice\Indexs.cshtml" />
     <Content Include="Views\Invoice\Test.cshtml" />
-    <Content Include="Views\ProductItem\Create.cshtml" />
-    <Content Include="Views\ProductItem\Delete.cshtml" />
-    <Content Include="Views\ProductItem\Details.cshtml" />
-    <Content Include="Views\ProductItem\Edit.cshtml" />
+    <Content Include="Views\Invoice\ItemCreate.cshtml" />
+    <Content Include="Views\Invoice\ItemDelete.cshtml" />
+    <Content Include="Views\Invoice\ItemDetails.cshtml" />
+    <Content Include="Views\Invoice\ItemEdit.cshtml" />
     <Content Include="Views\ProductItem\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -447,6 +467,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110270032323_spellingEror.resx">
       <DependentUpon>202110270032323_spellingEror.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110270926117_cangeDatatype.resx">
+      <DependentUpon>202110270926117_cangeDatatype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110270942079_updateDatabase.resx">
+      <DependentUpon>202110270942079_updateDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110270946232_changeFielNae.resx">
+      <DependentUpon>202110270946232_changeFielNae.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110270956417_UDATEtABLE.resx">
+      <DependentUpon>202110270956417_UDATEtABLE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110271010034_dropandcreateTable.resx">
+      <DependentUpon>202110271010034_dropandcreateTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

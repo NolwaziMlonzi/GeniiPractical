@@ -19,8 +19,8 @@ namespace pointOfSales.Models
         public Double TotalCost { get; set; }
         [Display(Name = "Total Amount")]
         public Double TotalAmount { get; set; }
-
-        public int InvoiceID { get; set; }
+        [Display(Name = "Invoice ID")]
+        public int Invoice_Id { get; set; }
 
     }
 }

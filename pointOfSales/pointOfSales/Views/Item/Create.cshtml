@@ -1,18 +1,27 @@
-﻿@model pointOfSales.Models.ProductItem
+﻿@model pointOfSales.Models.Item
 
 @{
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2><i class="fa fa-shopping-basket" aria-hidden="true" style="font-size:40px"> Items</i></h2>
+<br />
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>ProductItem</h4>
-        <hr />
+
+<div class="form-horizontal">
+    <h4><i class="fa fa-plus-square" aria-hidden="true" style="font-size:20px">Adding a New Item</i></h4>
+    <hr />
+
+    <div class="form-group">
+            @Html.LabelFor(model => model.InvoiceID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.InvoiceID, new { @Value = @Session["InvoiceID"] , @class = "form-control", @id = "disabledInput", @disabled = "" })
+                @Html.ValidationMessageFor(model => model.InvoiceID, "", new { @class = "text-danger" })
+            </div>
+        </div>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.ItemName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -48,7 +57,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Add" class="btn btn-default" />
             </div>
         </div>
     </div>

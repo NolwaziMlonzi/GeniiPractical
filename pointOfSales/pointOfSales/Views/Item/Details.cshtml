@@ -1,4 +1,4 @@
-﻿@model pointOfSales.Models.ProductItem
+﻿@model pointOfSales.Models.Item
 
 @{
     ViewBag.Title = "Details";
@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>ProductItem</h4>
+    <h4>Item</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -40,6 +40,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.TotalAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceID)
         </dd>
 
     </dl>

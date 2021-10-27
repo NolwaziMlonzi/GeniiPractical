@@ -20,7 +20,45 @@ namespace pointOfSales.Controllers
         {
             return View(db.Invoice.ToList());
         }
-       
+
+        // GET: ProductItem/Create
+        public ActionResult ItemCreate()
+        {
+            return View();
+        }
+
+        // POST: ProductItem/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ItemCreate([Bind(Include = "ItemID,ItemName,CostPerItem,TotalCost,TotalAmount,Invoice_Id")] ProductItem productItem)
+        {
+            if (ModelState.IsValid)
+            {
+                db.ProductItems.Add(productItem);
+                db.SaveChanges();
+                return RedirectToAction("Indexs");
+            }
+
+            return View(productItem);
+        }
+
+        // GET: ProductItem/Details/5
+        public ActionResult ItemDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ProductItem productItem = db.ProductItems.Find(id);
+            if (productItem == null)
+            {
+                return HttpNotFound();
+            }
+            return View(productItem);
+        }
+
         public ActionResult Test(int? id)
         {
             //InvoiceID item = db.InvoiceIDs.Find(id);

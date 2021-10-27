@@ -4,10 +4,15 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="form-group">
+    <label class="control-label" for="disabledInput"> Invoice ID</label>
+    <input class="form-control" id="disabledInput" type="text" disabled="" value=@Session["InvoiceID"]>
+  
+</div>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <i class="fa fa-shopping-basket" aria-hidden="true">@Html.ActionLink("Add New Item", "Create", "ProductItem")</i>
+
 </p>
 <table class="table">
     <tr>
@@ -22,6 +27,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TotalAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceID)
         </th>
         <th></th>
     </tr>
@@ -41,9 +49,12 @@
             @Html.DisplayFor(modelItem => item.TotalAmount)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ItemID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ItemID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ItemID })
+            @Html.DisplayFor(modelItem => item.InvoiceID)
+        </td>
+        <td>
+            <i class="fa fa-pencil" aria-hidden="true"> @Html.ActionLink("Edit", "Edit", new { id = item.ItemID }) |</i>
+            <i class="fa fa-eye" aria-hidden="true"> @Html.ActionLink("Details", "Details", new { id = item.ItemID }) |</i>
+            <i class="fa fa-trash" aria-hidden="true"> @Html.ActionLink("Delete", "Delete", new { id = item.ItemID }) </i>
         </td>
     </tr>
 }

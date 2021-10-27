@@ -22,7 +22,7 @@ namespace pointOfSales.Controllers
         }
 
         // GET: ProductItem/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult ItemDetails(int? id)
         {
             if (id == null)
             {
@@ -37,7 +37,7 @@ namespace pointOfSales.Controllers
         }
 
         // GET: ProductItem/Create
-        public ActionResult Create()
+        public ActionResult ItemCreate()
         {
             return View();
         }
@@ -47,7 +47,7 @@ namespace pointOfSales.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ItemID,ItemName,CostPerItem,TotalCost,TotalAmount")] ProductItem productItem)
+        public ActionResult ItemCreate([Bind(Include = "ItemID,ItemName,CostPerItem,TotalCost,TotalAmount,Invoice_ID")] ProductItem productItem)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace pointOfSales.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ItemID,ItemName,CostPerItem,TotalCost,TotalAmount")] ProductItem productItem)
+        public ActionResult Edit([Bind(Include = "ItemID,ItemName,CostPerItem,TotalCost,TotalAmount,Invoice_Id")] ProductItem productItem)
         {
             if (ModelState.IsValid)
             {

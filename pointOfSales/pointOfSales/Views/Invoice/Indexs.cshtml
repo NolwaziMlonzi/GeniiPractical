@@ -10,11 +10,14 @@
 </div>
 
 <p>
-    <i class="fa fa-shopping-basket" aria-hidden="true">@Html.ActionLink("Add New Item", "Create", "ProductItem")</i>
+    <i class="fa fa-shopping-basket" aria-hidden="true">@Html.ActionLink("Add New Item", "ItemCreate", "Invoice")</i>
 
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemID)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.ItemName)
         </th>
@@ -28,7 +31,7 @@
             @Html.DisplayNameFor(model => model.TotalAmount)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.InvoiceID)
+            @Html.DisplayNameFor(model => model.Invoice_Id)
         </th>
         <th></th>
     </tr>
@@ -36,6 +39,9 @@
     @foreach (var item in Model)
     {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemID)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.ItemName)
         </td>
@@ -50,12 +56,12 @@
             @Html.DisplayFor(modelItem => item.TotalAmount)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.InvoiceID)
+            @Html.DisplayFor(modelItem => item.Invoice_Id)
         </td>
         <td>
-            <i class="fa fa-pencil" aria-hidden="true"> @Html.ActionLink("Edit", "Edit", new { id = item.ItemID }) |</i>
-            <i class="fa fa-eye" aria-hidden="true"> @Html.ActionLink("Details", "Details", new { id = item.ItemID }) |</i>
-            <i class="fa fa-trash" aria-hidden="true"> @Html.ActionLink("Delete", "Delete", new { id = item.ItemID }) </i>
+            <i class="fa fa-pencil" aria-hidden="true"> @Html.ActionLink("Edit", "ItemEdit", new { id = item.ItemID }) |</i>
+            <i class="fa fa-eye" aria-hidden="true"> @Html.ActionLink("Details", "ItemDetails", new { id = item.ItemID }) |</i>
+            <i class="fa fa-trash" aria-hidden="true"> @Html.ActionLink("Delete", "ItemDelete", new { id = item.ItemID }) </i>
         </td>
     </tr>
     }

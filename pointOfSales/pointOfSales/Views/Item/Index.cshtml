@@ -1,0 +1,58 @@
+﻿@model IEnumerable<pointOfSales.Models.Item>
+@{
+    ViewBag.Title = "Indexs";
+}
+
+
+<h2> Existing Items in The InvoiceID</h2>
+<div class="form-group">
+    <label class="control-label" for="disabledInput"> Invoice ID</label>
+    <input class="form-control" id="disabledInput" type="text" disabled="" value=@Session["InvoiceID"]>
+
+</div>
+<p>
+    <i class="fa fa-shopping-basket" aria-hidden="true">@Html.ActionLink(" Add New Item", "Create")</i>
+    @*@Session["InvoiceID"]*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CostPerItem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceID)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CostPerItem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalCost)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InvoiceID)
+            </td>
+            <td>
+                <i class="fa fa-pencil" aria-hidden="true"> @Html.ActionLink("Edit", "Edit", new { id = item.ItemID }) |</i>
+                <i class="fa fa-eye" aria-hidden="true"> @Html.ActionLink("Details", "Details", new { id = item.ItemID }) |</i>
+                <i class="fa fa-trash" aria-hidden="true"> @Html.ActionLink("Delete", "Delete", new { id = item.ItemID }) </i>
+            </td>
+        </tr>
+    }
+
+</table>

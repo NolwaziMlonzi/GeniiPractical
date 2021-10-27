@@ -19,8 +19,8 @@ namespace point_of_sales.Models
             modelBuilder.Entity<User>()
                 .Property(u => u.Re_typePassword)
                 .HasColumnName("RetypePassword");
-            
-                }
+
+        }
         
     }
 }
