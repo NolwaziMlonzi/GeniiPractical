@@ -7,13 +7,13 @@ namespace pointOfSales.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class LinkTableProductAndInvoiceID : IMigrationMetadata
+    public sealed partial class updatetables : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(LinkTableProductAndInvoiceID));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updatetables));
         
         string IMigrationMetadata.Id
         {
-            get { return "202110252147000_LinkTableProductAndInvoiceID"; }
+            get { return "202110262203186_updatetables"; }
         }
         
         string IMigrationMetadata.Source

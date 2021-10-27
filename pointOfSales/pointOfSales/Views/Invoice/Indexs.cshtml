@@ -1,4 +1,4 @@
-﻿@model IEnumerable<pointOfSales.Models.Item>
+﻿@model IEnumerable<pointOfSales.Models.ProductItem>
 @{
     ViewBag.Title = "Indexs";
 }
@@ -10,7 +10,7 @@
 </div>
 
 <p>
-    <i class="fa fa-shopping-basket" aria-hidden="true">@Html.ActionLink("Add New Item", "Create", "Item")</i>
+    <i class="fa fa-shopping-basket" aria-hidden="true">@Html.ActionLink("Add New Item", "Create", "ProductItem")</i>
 
 </p>
 <table class="table">
@@ -27,31 +27,37 @@
         <th>
             @Html.DisplayNameFor(model => model.TotalAmount)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceID)
+        </th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ItemName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CostPerItem)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalCost)
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CostPerItem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalCost)
 
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Invoice)
-            </td>
-            <td>
-                <i class="fa fa-pencil" aria-hidden="true"> @Html.ActionLink("Edit", "Edit", new { id = item.ItemID }) |</i>
-                <i class="fa fa-eye" aria-hidden="true"> @Html.ActionLink("Details", "Details", new { id = item.ItemID }) |</i>
-                <i class="fa fa-trash" aria-hidden="true"> @Html.ActionLink("Delete", "Delete", new { id = item.ItemID }) </i>
-            </td>
-        </tr>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceID)
+        </td>
+        <td>
+            <i class="fa fa-pencil" aria-hidden="true"> @Html.ActionLink("Edit", "Edit", new { id = item.ItemID }) |</i>
+            <i class="fa fa-eye" aria-hidden="true"> @Html.ActionLink("Details", "Details", new { id = item.ItemID }) |</i>
+            <i class="fa fa-trash" aria-hidden="true"> @Html.ActionLink("Delete", "Delete", new { id = item.ItemID }) </i>
+        </td>
+    </tr>
     }
 
 </table>

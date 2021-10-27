@@ -21,7 +21,7 @@
             @Html.DisplayNameFor(model => model.ProductsInStock)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Invoice.InvoiceID)
+            @Html.DisplayNameFor(model => model.InvoiceID)
         </th>
         <th></th>
     </tr>
@@ -38,7 +38,7 @@
             @Html.DisplayFor(modelItem => item.ProductsInStock)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Invoice.InvoiceID)
+            @Html.DisplayFor(modelItem => item.InvoiceID)
         </td>
         <td>
             <i class="fa fa-pencil" aria-hidden="true"> @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |</i>

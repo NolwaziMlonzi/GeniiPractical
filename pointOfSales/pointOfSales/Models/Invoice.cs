@@ -8,7 +8,7 @@ namespace pointOfSales.Models
 {
     public class Invoice
     {
-        [Display(Name = "InvoiceID")]
+        [Display(Name = "Invoice ID")]
         public int InvoiceID { get; set; }
 
         [Display(Name = "DateCreated")]
@@ -20,7 +20,6 @@ namespace pointOfSales.Models
         [Display(Name = "Total Invoice")]
         public Double Total { get; set; }
 
-        public virtual List<Product> Products { get; set; }
-        public virtual List<Item> Items { get; set; }
+        //public virtual List<Product> Products { get; set; }
     }
 }

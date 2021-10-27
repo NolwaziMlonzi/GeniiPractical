@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -6,8 +7,9 @@ using System.Web;
 
 namespace pointOfSales.Models
 {
-    public class Item
+    public class ProductItem
     {
+        [Key]
         public int ItemID { get; set; }
         [Display(Name = "Item")]
         public string ItemName { get; set; }
@@ -18,7 +20,7 @@ namespace pointOfSales.Models
         [Display(Name = "Total Amount")]
         public Double TotalAmount { get; set; }
 
-        public virtual Invoice Invoice { get; set; }
+        public int InvoiceID { get; set; }
 
     }
 }

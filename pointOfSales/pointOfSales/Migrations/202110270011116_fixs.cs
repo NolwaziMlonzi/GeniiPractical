@@ -3,9 +3,14 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class addedItems : DbMigration
+    public partial class fixs : DbMigration
     {
         public override void Up()
+        {
+           
+        }
+        
+        public override void Down()
         {
             CreateTable(
                 "dbo.Items",
@@ -16,19 +21,10 @@
                         CostPerItem = c.Double(nullable: false),
                         TotalCost = c.Double(nullable: false),
                         TotalAmount = c.Double(nullable: false),
-                        InvoiceID_InvoiceIDID = c.Int(),
+                        InvoiceID = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.ItemID)
-                .ForeignKey("dbo.InvoiceIDs", t => t.InvoiceID_InvoiceIDID)
-                .Index(t => t.InvoiceID_InvoiceIDID);
+                .PrimaryKey(t => t.ItemID);
             
-        }
-        
-        public override void Down()
-        {
-            DropForeignKey("dbo.Items", "InvoiceID_InvoiceIDID", "dbo.InvoiceIDs");
-            DropIndex("dbo.Items", new[] { "InvoiceID_InvoiceIDID" });
-            DropTable("dbo.Items");
         }
     }
 }

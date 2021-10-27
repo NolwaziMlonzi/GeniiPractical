@@ -7,12 +7,12 @@
     {
         public override void Up()
         {
-            AlterColumn("dbo.Invoices", "Total", c => c.Double(nullable: false));
+            AlterColumn("dbo.InvoiceIDs", "Total", c => c.Double(nullable: false));
         }
         
         public override void Down()
         {
-            AlterColumn("dbo.Invoices", "Total", c => c.String());
+            AlterColumn("dbo.InvoiceIDs", "Total", c => c.String());
         }
     }
 }

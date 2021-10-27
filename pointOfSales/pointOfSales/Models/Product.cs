@@ -15,8 +15,8 @@ namespace pointOfSales.Models
         public double CostPerItem { get; set; }
         [Display(Name = "Products In Stock")]
         public int ProductsInStock { get; set; }
-
-        public virtual Invoice Invoice { get; set; }
+        [Display(Name = "Invoice ID")]
+        public  int InvoiceID { get; set; }
 
     }
 }

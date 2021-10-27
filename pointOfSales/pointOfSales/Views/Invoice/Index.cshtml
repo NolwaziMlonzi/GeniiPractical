@@ -6,7 +6,7 @@
 }
 
 
-<h2> Existing Invoice in The System</h2>
+<h2> Existing Invoices in The System</h2>
 
 <p>
     <i class="fa fa-plus" aria-hidden="true">@Html.ActionLink(" Add New Invoice", "Create")</i>
@@ -27,7 +27,7 @@
 
     @foreach (var item in Model)
     {
-        //ViewBag.InvoiceID = item.InvoiceID;
+        //ViewBag.InvoiceIDID = item.InvoiceIDID;
 <tr>
     <td>
         @Html.DisplayFor(modelItem => item.DateCreated)

@@ -129,8 +129,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvoiceController.cs" />
-    <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ProductItemController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -196,11 +196,71 @@
     <Compile Include="Migrations\202110261302450_addedTotalAmount.designer.cs">
       <DependentUpon>202110261302450_addedTotalAmount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110261855083_changedType.cs" />
+    <Compile Include="Migrations\202110261855083_changedType.designer.cs">
+      <DependentUpon>202110261855083_changedType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110261906364_resolveMappingIssue.cs" />
+    <Compile Include="Migrations\202110261906364_resolveMappingIssue.designer.cs">
+      <DependentUpon>202110261906364_resolveMappingIssue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110261915528_RenameField.cs" />
+    <Compile Include="Migrations\202110261915528_RenameField.designer.cs">
+      <DependentUpon>202110261915528_RenameField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110261927186_fixMappingAgain.cs" />
+    <Compile Include="Migrations\202110261927186_fixMappingAgain.designer.cs">
+      <DependentUpon>202110261927186_fixMappingAgain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110261941431_dattypefix.cs" />
+    <Compile Include="Migrations\202110261941431_dattypefix.designer.cs">
+      <DependentUpon>202110261941431_dattypefix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110262203186_updatetables.cs" />
+    <Compile Include="Migrations\202110262203186_updatetables.designer.cs">
+      <DependentUpon>202110262203186_updatetables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110262215010_fixedMappiIssuesAgain.cs" />
+    <Compile Include="Migrations\202110262215010_fixedMappiIssuesAgain.designer.cs">
+      <DependentUpon>202110262215010_fixedMappiIssuesAgain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110262222358_deletedOldTale.cs" />
+    <Compile Include="Migrations\202110262222358_deletedOldTale.designer.cs">
+      <DependentUpon>202110262222358_deletedOldTale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110262234574_anotheMappingIssue.cs" />
+    <Compile Include="Migrations\202110262234574_anotheMappingIssue.designer.cs">
+      <DependentUpon>202110262234574_anotheMappingIssue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110262253486_productTableFixs.cs" />
+    <Compile Include="Migrations\202110262253486_productTableFixs.designer.cs">
+      <DependentUpon>202110262253486_productTableFixs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110262259565_fixMappingIssue.cs" />
+    <Compile Include="Migrations\202110262259565_fixMappingIssue.designer.cs">
+      <DependentUpon>202110262259565_fixMappingIssue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110262301089_2ndFi.cs" />
+    <Compile Include="Migrations\202110262301089_2ndFi.designer.cs">
+      <DependentUpon>202110262301089_2ndFi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110270011116_fixs.cs" />
+    <Compile Include="Migrations\202110270011116_fixs.designer.cs">
+      <DependentUpon>202110270011116_fixs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110270026428_newTable.cs" />
+    <Compile Include="Migrations\202110270026428_newTable.designer.cs">
+      <DependentUpon>202110270026428_newTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110270032323_spellingEror.cs" />
+    <Compile Include="Migrations\202110270032323_spellingEror.designer.cs">
+      <DependentUpon>202110270032323_spellingEror.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataContext.cs" />
     <Compile Include="Models\Invoice.cs" />
-    <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductItem.cs" />
     <Compile Include="Models\ProductsSold.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\User.cs" />
@@ -275,13 +335,13 @@
     <Content Include="Views\Invoice\Details.cshtml" />
     <Content Include="Views\Invoice\Edit.cshtml" />
     <Content Include="Views\Invoice\Index.cshtml" />
-    <Content Include="Views\Item\Create.cshtml" />
-    <Content Include="Views\Item\Delete.cshtml" />
-    <Content Include="Views\Item\Details.cshtml" />
-    <Content Include="Views\Item\Edit.cshtml" />
     <Content Include="Views\Invoice\Indexs.cshtml" />
     <Content Include="Views\Invoice\Test.cshtml" />
-    <Content Include="Views\Item\Index.cshtml" />
+    <Content Include="Views\ProductItem\Create.cshtml" />
+    <Content Include="Views\ProductItem\Delete.cshtml" />
+    <Content Include="Views\ProductItem\Details.cshtml" />
+    <Content Include="Views\ProductItem\Edit.cshtml" />
+    <Content Include="Views\ProductItem\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -342,6 +402,51 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110261302450_addedTotalAmount.resx">
       <DependentUpon>202110261302450_addedTotalAmount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110261855083_changedType.resx">
+      <DependentUpon>202110261855083_changedType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110261906364_resolveMappingIssue.resx">
+      <DependentUpon>202110261906364_resolveMappingIssue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110261915528_RenameField.resx">
+      <DependentUpon>202110261915528_RenameField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110261927186_fixMappingAgain.resx">
+      <DependentUpon>202110261927186_fixMappingAgain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110261941431_dattypefix.resx">
+      <DependentUpon>202110261941431_dattypefix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110262203186_updatetables.resx">
+      <DependentUpon>202110262203186_updatetables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110262215010_fixedMappiIssuesAgain.resx">
+      <DependentUpon>202110262215010_fixedMappiIssuesAgain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110262222358_deletedOldTale.resx">
+      <DependentUpon>202110262222358_deletedOldTale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110262234574_anotheMappingIssue.resx">
+      <DependentUpon>202110262234574_anotheMappingIssue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110262253486_productTableFixs.resx">
+      <DependentUpon>202110262253486_productTableFixs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110262259565_fixMappingIssue.resx">
+      <DependentUpon>202110262259565_fixMappingIssue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110262301089_2ndFi.resx">
+      <DependentUpon>202110262301089_2ndFi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110270011116_fixs.resx">
+      <DependentUpon>202110270011116_fixs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110270026428_newTable.resx">
+      <DependentUpon>202110270026428_newTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110270032323_spellingEror.resx">
+      <DependentUpon>202110270032323_spellingEror.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

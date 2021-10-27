@@ -15,45 +15,45 @@ namespace pointOfSales.Controllers
     {
         private DataContext db = new DataContext();
 
-        // GET: Invoice
+        // GET: InvoiceID
         public ActionResult Index()
         {
-            return View(db.Invoices.ToList());
+            return View(db.Invoice.ToList());
         }
        
         public ActionResult Test(int? id)
         {
-            //Invoice item = db.Invoices.Find(id);
+            //InvoiceID item = db.InvoiceIDs.Find(id);
             
             Session["InvoiceID"] = id;
             return RedirectToAction("Indexs");
         }
         public ActionResult Indexs()
         {
-            return View(db.Items.ToList());
+            return View(db.ProductItems.ToList());
         }
-        // GET: Invoice/Details/5
+        // GET: InvoiceID/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Invoice invoice = db.Invoices.Find(id);
-            if (invoice == null)
+            Invoice Invoice = db.Invoice.Find(id);
+            if (Invoice == null)
             {
                 return HttpNotFound();
             }
-            return View(invoice);
+            return View(Invoice);
         }
 
-        // GET: Invoice/Create
+        // GET: InvoiceID/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Invoice/Create
+        // POST: InvoiceID/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -62,8 +62,8 @@ namespace pointOfSales.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Invoices.Add(invoice);
-                //Session["InvoiceID"] = invoice.InvoiceID;
+                db.Invoice.Add(invoice);
+                //Session["InvoiceIDID"] = InvoiceID.InvoiceIDID;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -71,59 +71,59 @@ namespace pointOfSales.Controllers
             return View(invoice);
         }
 
-        // GET: Invoice/Edit/5
+        // GET: InvoiceID/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Invoice invoice = db.Invoices.Find(id);
-            if (invoice == null)
+            Invoice Invoice = db.Invoice.Find(id);
+            if (Invoice == null)
             {
                 return HttpNotFound();
             }
-            return View(invoice);
+            return View(Invoice);
         }
 
-        // POST: Invoice/Edit/5
+        // POST: InvoiceID/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "InvoiceID,DateCreated,UserName,Total")] Invoice invoice)
+        public ActionResult Edit([Bind(Include = "InvoiceID,DateCreated,UserName,Total")] Invoice Invoice)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(invoice).State = EntityState.Modified;
+                db.Entry(Invoice).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(invoice);
+            return View(Invoice);
         }
 
-        // GET: Invoice/Delete/5
+        // GET: InvoiceID/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Invoice invoice = db.Invoices.Find(id);
-            if (invoice == null)
+            Invoice Invoice = db.Invoice.Find(id);
+            if (Invoice == null)
             {
                 return HttpNotFound();
             }
-            return View(invoice);
+            return View(Invoice);
         }
 
-        // POST: Invoice/Delete/5
+        // POST: InvoiceID/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Invoice invoice = db.Invoices.Find(id);
-            db.Invoices.Remove(invoice);
+            Invoice Invoice = db.Invoice.Find(id);
+            db.Invoice.Remove(Invoice);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

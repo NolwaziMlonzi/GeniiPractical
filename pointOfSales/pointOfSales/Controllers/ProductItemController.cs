@@ -11,110 +11,107 @@ using point_of_sales.Models;
 
 namespace pointOfSales.Controllers
 {
-    public class ItemController : Controller
+    public class ProductItemController : Controller
     {
         private DataContext db = new DataContext();
 
-        // GET: Item
+        // GET: ProductItem
         public ActionResult Index()
         {
-          
-            //return RedirectToAction("Login");
-            return View(db.Items.ToList());
+            return View(db.ProductItems.ToList());
         }
-       
-        // GET: Item/Details/5
+
+        // GET: ProductItem/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Item item = db.Items.Find(id);
-            if (item == null)
+            ProductItem productItem = db.ProductItems.Find(id);
+            if (productItem == null)
             {
                 return HttpNotFound();
             }
-            return View(item);
+            return View(productItem);
         }
 
-        // GET: Item/Create
+        // GET: ProductItem/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Item/Create
+        // POST: ProductItem/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ItemID,ItemName,CostPerItem,TotalCost,TotalAmount,Invoice_InvoiceID")] Item item)
+        public ActionResult Create([Bind(Include = "ItemID,ItemName,CostPerItem,TotalCost,TotalAmount")] ProductItem productItem)
         {
             if (ModelState.IsValid)
             {
-                System.Diagnostics.Debug.WriteLine(db.Items + "-----------------1"+ item.Invoice);
-                db.Items.Add(item);
+                db.ProductItems.Add(productItem);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            
-            return View(item);
+
+            return View(productItem);
         }
 
-        // GET: Item/Edit/5
+        // GET: ProductItem/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Item item = db.Items.Find(id);
-            if (item == null)
+            ProductItem productItem = db.ProductItems.Find(id);
+            if (productItem == null)
             {
                 return HttpNotFound();
             }
-            return View(item);
+            return View(productItem);
         }
 
-        // POST: Item/Edit/5
+        // POST: ProductItem/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ItemID,ItemName,CostPerItem,TotalCost,TotalAmount")] Item item)
+        public ActionResult Edit([Bind(Include = "ItemID,ItemName,CostPerItem,TotalCost,TotalAmount")] ProductItem productItem)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(item).State = EntityState.Modified;
+                db.Entry(productItem).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(item);
+            return View(productItem);
         }
 
-        // GET: Item/Delete/5
+        // GET: ProductItem/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Item item = db.Items.Find(id);
-            if (item == null)
+            ProductItem productItem = db.ProductItems.Find(id);
+            if (productItem == null)
             {
                 return HttpNotFound();
             }
-            return View(item);
+            return View(productItem);
         }
 
-        // POST: Item/Delete/5
+        // POST: ProductItem/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Item item = db.Items.Find(id);
-            db.Items.Remove(item);
+            ProductItem productItem = db.ProductItems.Find(id);
+            db.ProductItems.Remove(productItem);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
